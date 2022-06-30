@@ -31,6 +31,9 @@ namespace Captureitor
         {
             this.components = new System.ComponentModel.Container();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.tmPS = new System.Windows.Forms.Timer(this.components);
+            this.picTela = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.picTela)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -38,13 +41,30 @@ namespace Captureitor
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // tmPS
+            // 
+            this.tmPS.Interval = 1000;
+            this.tmPS.Tick += new System.EventHandler(this.tmPS_Tick);
+            // 
+            // picTela
+            // 
+            this.picTela.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.picTela.Location = new System.Drawing.Point(0, 0);
+            this.picTela.Name = "picTela";
+            this.picTela.Size = new System.Drawing.Size(303, 243);
+            this.picTela.TabIndex = 0;
+            this.picTela.TabStop = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(303, 243);
+            this.Controls.Add(this.picTela);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.picTela)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -52,6 +72,8 @@ namespace Captureitor
         #endregion
 
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer tmPS;
+        private System.Windows.Forms.PictureBox picTela;
     }
 }
 
