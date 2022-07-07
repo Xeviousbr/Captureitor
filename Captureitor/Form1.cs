@@ -49,10 +49,14 @@ namespace Captureitor
             tmPS.Enabled = false;
             Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
             this.g = Graphics.FromImage(b);
-            this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
+            Point p1 = new Point(1600, 100);
+            Point p2 = new Point(0, 0);
+            Size S = new Size(1600, 1200);
+            this.g.CopyFromScreen(p1, Point.Empty, S);
             picTela.Image = b;
             picTela.Image.Save("svdTela.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
             tmPS.Enabled = true;
+            Console.WriteLine("Capturou");
         }
 
         private void Form1_Load(object sender, EventArgs e)

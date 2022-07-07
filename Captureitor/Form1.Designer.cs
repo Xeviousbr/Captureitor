@@ -43,6 +43,7 @@ namespace Captureitor
             // 
             // tmPS
             // 
+            this.tmPS.Enabled = true;
             this.tmPS.Interval = 1000;
             this.tmPS.Tick += new System.EventHandler(this.tmPS_Tick);
             // 
@@ -52,6 +53,7 @@ namespace Captureitor
             this.picTela.Location = new System.Drawing.Point(0, 0);
             this.picTela.Name = "picTela";
             this.picTela.Size = new System.Drawing.Size(303, 243);
+            this.picTela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picTela.TabIndex = 0;
             this.picTela.TabStop = false;
             // 
@@ -63,6 +65,7 @@ namespace Captureitor
             this.Controls.Add(this.picTela);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picTela)).EndInit();
             this.ResumeLayout(false);
