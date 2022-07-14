@@ -6,9 +6,9 @@ using System.Runtime.InteropServices;
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
 // associadas a um assembly.
 [assembly: AssemblyTitle("Captureitor")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Captura telas da segunda tela, uma vez a cada segundo")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("ATC Informática")]
 [assembly: AssemblyProduct("Captureitor")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]

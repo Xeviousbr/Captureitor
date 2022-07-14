@@ -54,7 +54,12 @@ namespace Captureitor
             Size S = new Size(1600, 1200);
             this.g.CopyFromScreen(p1, Point.Empty, S);
             picTela.Image = b;
-            picTela.Image.Save("svdTela.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+
+            string sData = DateTime.Now.ToShortDateString().Replace(@"/", "-");
+            string sHora = DateTime.Now.ToLongTimeString().Replace(@":", "");
+            string nmArq = "Cap_" + sData + sHora+".jpg";
+            picTela.Image.Save(nmArq, System.Drawing.Imaging.ImageFormat.Jpeg);
+
             tmPS.Enabled = true;
             Console.WriteLine("Capturou");
         }
@@ -66,3 +71,9 @@ namespace Captureitor
         }
     }
 }
+
+// Comentário do Luiz Henrique sobre otimização no código
+
+//Sendo widows, você pode fazer isso usando API e pode literalmente pegar a tela e não um trecho da imagem global do Windows.
+//Dá pra saber tudo sobre ela com a função da api "getdevicecaps".
+//E você pode usar a função "bitblt" pra fazer uma cópia em memória da imagem que um monitor específico está mostrando.
