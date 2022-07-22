@@ -33,6 +33,7 @@ namespace Captureitor
                 if (KA)
                 {
                     Console.WriteLine("Ligar");
+                    tmPS.Interval = 1000;
                     tmPS.Enabled = true;
                 } else
                 {
@@ -49,15 +50,16 @@ namespace Captureitor
             tmPS.Enabled = false;
             Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
             this.g = Graphics.FromImage(b);
-            Point p1 = new Point(1400, -125);
-            Point p2 = new Point(-200, -100);
-            Size S = new Size(1800, 1200);
+            Point p1 = new Point(1700, -125);
+            Point p2 = new Point(0, 0);
+            Size S = new Size(1800, 1200); // Original
             this.g.CopyFromScreen(p1, p2, S);
             picTela.Image = b;
             string sData = DateTime.Now.ToShortDateString().Replace(@"/", "-");
             string sHora = DateTime.Now.ToLongTimeString().Replace(@":", "");
             string nmArq = "Cap_" + sData + sHora+".jpg";
             picTela.Image.Save(nmArq, System.Drawing.Imaging.ImageFormat.Jpeg);
+            tmPS.Interval = tmPS.Interval+3;
             tmPS.Enabled = true;
             Console.WriteLine("Capturou");
         }
