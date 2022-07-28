@@ -65,7 +65,6 @@ namespace Captureitor
             this.Controls.Add(this.picTela);
             this.Location = new System.Drawing.Point(1285, 600);
             this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Captureitor";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picTela)).EndInit();
