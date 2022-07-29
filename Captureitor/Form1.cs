@@ -52,18 +52,19 @@ namespace Captureitor
         {
             tmPS.Enabled = false;
 
-            Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
-            this.g = Graphics.FromImage(b);
-            this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
-            picTela.Image = b;            
-
-            // Esse trecho copia a segunda tela, mas a minha
+            //// Trecho para capturar só a tela principal
             //Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
             //this.g = Graphics.FromImage(b);
-            //Point p1 = new Point(1700, -125);
-            //Point p2 = new Point(0, 0);
-            //Size S = new Size(1800, 1200); // Original
-            //this.g.CopyFromScreen(p1, p2, S);
+            //this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
+            //picTela.Image = b;
+
+            // Esse trecho copia a segunda tela, mas a minha
+            Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
+            this.g = Graphics.FromImage(b);
+            Point p1 = new Point(1700, -125);
+            Point p2 = new Point(0, 0);
+            Size S = new Size(1800, 1200); // Original
+            this.g.CopyFromScreen(p1, p2, S);
 
             picTela.Image = b;
             string sData = DateTime.Now.ToShortDateString().Replace(@"/", "-");

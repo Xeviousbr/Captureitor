@@ -30,6 +30,7 @@ namespace Captureitor
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.tmPS = new System.Windows.Forms.Timer(this.components);
             this.picTela = new System.Windows.Forms.PictureBox();
@@ -51,19 +52,22 @@ namespace Captureitor
             // 
             this.picTela.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picTela.Location = new System.Drawing.Point(0, 0);
+            this.picTela.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picTela.Name = "picTela";
-            this.picTela.Size = new System.Drawing.Size(303, 243);
+            this.picTela.Size = new System.Drawing.Size(454, 374);
             this.picTela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picTela.TabIndex = 0;
             this.picTela.TabStop = false;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(303, 243);
+            this.ClientSize = new System.Drawing.Size(454, 374);
             this.Controls.Add(this.picTela);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(1285, 600);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
             this.Text = "Captureitor";
             this.Load += new System.EventHandler(this.Form1_Load);
