@@ -14,6 +14,7 @@ namespace Captureitor
         private int TelaLargura = 0;
         private int TelaAltura = 0;
         private Graphics g;
+        private int Tela = 1;
 
         public Form1()
         {
@@ -51,27 +52,25 @@ namespace Captureitor
         private void tmPS_Tick(object sender, EventArgs e)
         {
             tmPS.Enabled = false;
-
-            //// Trecho para capturar só a tela principal
-            //Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
-            //this.g = Graphics.FromImage(b);
-            //this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
-            //picTela.Image = b;
-
-            // Esse trecho copia a segunda tela, mas a minha
             Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
             this.g = Graphics.FromImage(b);
-            Point p1 = new Point(1700, -125);
-            Point p2 = new Point(0, 0);
-            Size S = new Size(1800, 1200); // Original
-            this.g.CopyFromScreen(p1, p2, S);
+
+            if (Tela == 1)
+                this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
+            else
+            {
+                Point p1 = new Point(1700, -125);
+                Point p2 = new Point(0, 0);
+                Size S = new Size(1800, 1200); // Original
+                this.g.CopyFromScreen(p1, p2, S);
+            }
 
             picTela.Image = b;
             string sData = DateTime.Now.ToShortDateString().Replace(@"/", "-");
             string sHora = DateTime.Now.ToLongTimeString().Replace(@":", "");
-            string nmArq = "Cap_" + sData + sHora+".jpg";
+            string nmArq = "Cap_" + sData + sHora + ".jpg";
             picTela.Image.Save(nmArq, System.Drawing.Imaging.ImageFormat.Jpeg);
-            tmPS.Interval = tmPS.Interval+3;
+            tmPS.Interval = tmPS.Interval + 3;
             tmPS.Enabled = true;
             Console.WriteLine("Capturou");
         }
@@ -80,6 +79,8 @@ namespace Captureitor
         {
             this.TelaLargura = Screen.PrimaryScreen.Bounds.Width;
             this.TelaAltura = Screen.PrimaryScreen.Bounds.Height;
+            Ini cIni = new Ini();
+            Tela = cIni.ReadInt("Captureitor", "Tela", 1);
         }
     }
 }
