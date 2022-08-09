@@ -52,25 +52,26 @@ namespace Captureitor
             // 
             this.picTela.Dock = System.Windows.Forms.DockStyle.Fill;
             this.picTela.Location = new System.Drawing.Point(0, 0);
-            this.picTela.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.picTela.Name = "picTela";
-            this.picTela.Size = new System.Drawing.Size(454, 374);
+            this.picTela.Size = new System.Drawing.Size(303, 243);
             this.picTela.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.picTela.TabIndex = 0;
             this.picTela.TabStop = false;
+            this.picTela.Click += new System.EventHandler(this.picTela_Click);
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(454, 374);
+            this.ClientSize = new System.Drawing.Size(303, 243);
             this.Controls.Add(this.picTela);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Location = new System.Drawing.Point(1285, 600);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Captureitor";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.picTela)).EndInit();
             this.ResumeLayout(false);
 

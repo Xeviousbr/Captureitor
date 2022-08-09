@@ -15,6 +15,7 @@ namespace Captureitor
         private int TelaAltura = 0;
         private Graphics g;
         private int Tela = 1;
+        private bool CiclouNaImagem = false;
 
         public Form1()
         {
@@ -54,7 +55,6 @@ namespace Captureitor
             tmPS.Enabled = false;
             Bitmap b = new Bitmap(this.TelaLargura, this.TelaAltura);
             this.g = Graphics.FromImage(b);
-
             if (Tela == 1)
                 this.g.CopyFromScreen(Point.Empty, Point.Empty, Screen.PrimaryScreen.Bounds.Size);
             else
@@ -64,7 +64,6 @@ namespace Captureitor
                 Size S = new Size(1800, 1200); // Original
                 this.g.CopyFromScreen(p1, p2, S);
             }
-
             picTela.Image = b;
             string sData = DateTime.Now.ToShortDateString().Replace(@"/", "-");
             string sHora = DateTime.Now.ToLongTimeString().Replace(@":", "");
@@ -81,6 +80,24 @@ namespace Captureitor
             this.TelaAltura = Screen.PrimaryScreen.Bounds.Height;
             Ini cIni = new Ini();
             Tela = cIni.ReadInt("Captureitor", "Tela", 1);
+        }
+
+        private void picTela_Click(object sender, EventArgs e)
+        {
+            tmPS.Enabled = false;
+            CiclouNaImagem = true;
+            this.WindowState = FormWindowState.Minimized;            
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Normal)
+            {
+                if (CiclouNaImagem) {
+                    CiclouNaImagem = false;
+                    tmPS.Enabled = true;
+                }
+            }
         }
     }
 }
